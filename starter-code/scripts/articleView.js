@@ -60,6 +60,9 @@ articleView.handleMainNav = function () {
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute.
     */
+    var whichTab = $(this).attr('data-content');
+    $('.tab-content').hide();
+    $('#' + whichTab).fadeIn();
   });
 };
 
@@ -67,12 +70,18 @@ articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
-    1. Prevent the defaul actionof a link.
+    1. Prevent the defaul action of a link.
     2. Reveal everything in that particular article now.
     3. Hide that read-on link!
 
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
   */
+  $('a.read-on').on('click', function(event){
+    event.preventDefault();
+    console.log($('a.read-on'));
+    $('.article-body *:nth-of-type(n+2)').show();
+    $('a.read-on').hide();
+  });
 };
 
 // TODO: Invoke all of the above functions (I mean, methods!):

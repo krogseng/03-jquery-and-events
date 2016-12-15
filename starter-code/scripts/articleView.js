@@ -53,18 +53,15 @@ articleView.handleCategoryFilter = function() {
   });
 };
 
-// articleView.handleMainNav = function () {
-//   $('.main-nav').on('click', '.tab', function() {
-//     /* TODO:
-//       1. Hide all of the .tab-content sections
-//       2. Fade in the single .tab-content section that is
-//         associated with the .tab element's data-content attribute.
-//     */
-//     //$('.tab-content').hide();
-//     //$('li.tab').
-//   //});
-//   //$('.main-nav .tab:first').click();
-// };
+articleView.handleMainNav = function () {
+  $('.main-nav').on('click', '.tab', function() {
+    /* TODO:
+      1. Hide all of the .tab-content sections
+      2. Fade in the single .tab-content section that is
+        associated with the .tab element's data-content attribute.
+    */
+  });
+};
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
@@ -82,5 +79,5 @@ articleView.setTeasers = function() {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
-//articleView.handleMainNav();
-//articleView.setTeasers();
+articleView.handleMainNav();
+articleView.setTeasers();

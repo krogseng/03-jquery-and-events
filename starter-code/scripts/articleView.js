@@ -27,7 +27,7 @@ articleView.handleAuthorFilter = function() {
         */
       $('article').hide();
       var authorName = $(this).val();
-      $('article[data-attribute = "' + authorName + '"]').fadeIn();
+      $('article[data-author = "' + authorName + '"]').fadeIn();
     } else {
     /* Otherwise, we should:
         1. Show all the articles except the template */
@@ -66,7 +66,7 @@ articleView.handleMainNav = function () {
   });
 };
 
-articleView.setTeasers = function() {
+articleView.setTeasers = function(event) {
   $('.article-body *:nth-of-type(n+2)').hide();
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
@@ -79,8 +79,8 @@ articleView.setTeasers = function() {
   $('a.read-on').on('click', function(event){
     event.preventDefault();
     console.log($('a.read-on'));
-    $('.article-body *:nth-of-type(n+2)').show();
-    $('a.read-on').hide();
+    $(this).parent().find('*').show();
+    $(this).hide();
   });
 };
 
